@@ -3,6 +3,9 @@
 Modernisierter Onlineshop und Konfigurator für die **Max Knobloch Nachf. GmbH** —
 Deutschlands ältester Briefkastenhersteller seit 1869.
 
+> 🔗 **Live-Demo:** [knobloch-shop-demo.vercel.app](https://knobloch-shop-demo.vercel.app)
+> 📦 **Repository:** [github.com/pontusmaximus/knobloch-shop-demo](https://github.com/pontusmaximus/knobloch-shop-demo)
+>
 > **Status:** Phase-1-Demo · Pitch-Frontend zur Angebotsabgabe an Knobloch.
 > Backend, echte Payments und CMS folgen in Phase 2.
 

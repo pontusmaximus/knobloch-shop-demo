@@ -20,8 +20,8 @@ Die heutigen KNOBLOCH-Online-Präsenzen (`knobloch-konfigurator.com`, `knobloch-
 **konkrete Diskussions- und Vergabegrundlage**. Sie können es heute live öffnen, anklicken
 und mit Ihrer aktuellen Lösung vergleichen.
 
-**Demo-URL:** *(nach Vercel-Deploy)* → `knobloch-demo.vercel.app`
-**Quellcode:** GitHub-Repo wird auf Wunsch übergeben
+**🔗 Live-Demo:** [knobloch-shop-demo.vercel.app](https://knobloch-shop-demo.vercel.app)
+**📦 Quellcode:** [github.com/pontusmaximus/knobloch-shop-demo](https://github.com/pontusmaximus/knobloch-shop-demo)
 
 ---
 
