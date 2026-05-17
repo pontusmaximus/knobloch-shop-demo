@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ArrowRight, Check } from "lucide-react";
@@ -32,62 +33,66 @@ export default async function CategoryPage({ params }: Props) {
 
   const items = getProductsByCategory(category);
   const Icon = cat.icon;
+  const heroImg = `/img/categories/${cat.slug === "tuerelement" ? "tuerseitenteil" : cat.slug}.jpg`;
 
   return (
     <>
-      <section className="border-b bg-anthracite-50 py-12 dark:bg-anthracite-950 lg:py-16">
-        <div className="container">
-          <nav className="text-xs text-muted-foreground">
-            <Link href="/" className="hover:text-foreground">Start</Link> /{" "}
-            <Link href="/briefkastenanlagen" className="hover:text-foreground">
-              Briefkastenanlagen
-            </Link>{" "}
-            / <span className="text-foreground">{cat.shortName}</span>
+      <section className="relative overflow-hidden border-b bg-anthracite-900 text-white">
+        <Image
+          src={heroImg}
+          alt={cat.name}
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover opacity-30"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-anthracite-950/95 via-anthracite-900/80 to-transparent" />
+
+        <div className="container relative py-16 lg:py-24">
+          <nav className="text-xs text-anthracite-300">
+            <Link href="/" className="hover:text-white">Start</Link> /{" "}
+            <Link href="/briefkastenanlagen" className="hover:text-white">Briefkastenanlagen</Link> /{" "}
+            <span className="text-white">{cat.shortName}</span>
           </nav>
 
-          <div className="mt-6 grid items-end gap-8 md:grid-cols-2">
-            <div>
-              <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white">
-                <Icon className="h-5 w-5" />
-              </div>
-              <h1 className="mt-4 font-display text-4xl tracking-tight md:text-5xl text-balance">
-                {cat.name}
-              </h1>
-              <p className="mt-3 text-muted-foreground text-pretty">{cat.description}</p>
-
-              <div className="mt-6 flex flex-wrap gap-2">
-                {cat.features.map((f) => (
-                  <Badge key={f} variant="outline" className="px-2 py-1 text-xs">
-                    <Check className="mr-1 h-3 w-3 text-emerald-600" />
-                    {f}
-                  </Badge>
-                ))}
-              </div>
-
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Button asChild size="lg" variant="accent">
-                  <Link href={`/konfigurator/${cat.slug}`} className="group">
-                    {cat.shortName} konfigurieren
-                    <ArrowRight className="transition-transform group-hover:translate-x-1" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline">
-                  <Link href="/kontakt">Beratung anfragen</Link>
-                </Button>
-              </div>
+          <div className="mt-6 max-w-3xl">
+            <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-accent text-anthracite-900">
+              <Icon className="h-5 w-5" />
             </div>
-            <div className="flex justify-end">
-              <div className="aspect-[3/4] w-full max-w-sm rounded-2xl border bg-gradient-to-br from-anthracite-200 to-anthracite-400 shadow-xl dark:from-anthracite-800 dark:to-anthracite-900">
-                <div className="flex h-full items-center justify-center">
-                  <Icon className="h-20 w-20 text-white/30" />
-                </div>
-              </div>
+            <h1 className="mt-4 font-display text-4xl tracking-tight md:text-6xl text-balance">
+              {cat.name}
+            </h1>
+            <p className="mt-4 text-anthracite-200 text-pretty">{cat.description}</p>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {cat.features.map((f) => (
+                <Badge key={f} variant="outline" className="border-white/30 bg-white/5 px-2 py-1 text-xs text-white">
+                  <Check className="mr-1 h-3 w-3 text-accent" />
+                  {f}
+                </Badge>
+              ))}
+            </div>
+
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Button asChild size="lg" variant="accent">
+                <Link href={`/konfigurator/${cat.slug}`} className="group">
+                  {cat.shortName} konfigurieren
+                  <ArrowRight className="transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-white/30 bg-white/5 text-white hover:bg-white/15 hover:text-white"
+              >
+                <Link href="/kontakt">Beratung anfragen</Link>
+              </Button>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Products */}
       <section className="border-b py-12 lg:py-16">
         <div className="container">
           {items.length === 0 ? (
