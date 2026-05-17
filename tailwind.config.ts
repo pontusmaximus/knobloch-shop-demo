@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  darkMode: ["class"],
   content: ["./src/**/*.{ts,tsx,js,jsx,mdx}"],
   theme: {
     container: {
@@ -44,30 +43,33 @@ const config: Config = {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        anthracite: {
-          50: "#F5F6F7",
-          100: "#E8EAEC",
-          200: "#C8CCD1",
-          300: "#A1A7AF",
-          400: "#6B7280",
-          500: "#4B5159",
-          600: "#34383E",
-          700: "#262A2F",
-          800: "#1A1D21",
-          900: "#0F1114",
-          950: "#08090B",
+        // Knobloch-Rot — premium signal red
+        brand: {
+          50: "#FEF2F3",
+          100: "#FDE3E5",
+          200: "#FBC9CD",
+          300: "#F69CA3",
+          400: "#EF6973",
+          500: "#E03340",
+          600: "#C8102E",
+          700: "#A50C26",
+          800: "#7D0920",
+          900: "#54061A",
+          950: "#310410",
         },
-        brass: {
-          50: "#FDF8EC",
-          100: "#FAEFC8",
-          200: "#F4DC8A",
-          300: "#EBC44A",
-          400: "#E0AB1F",
-          500: "#C18A0F",
-          600: "#9F6E0A",
-          700: "#7C5408",
-          800: "#5A3D06",
-          900: "#3A2704",
+        // Grayscale — neutral
+        ink: {
+          50: "#F8F9FA",
+          100: "#F1F3F5",
+          200: "#E5E7EB",
+          300: "#D1D5DB",
+          400: "#9CA3AF",
+          500: "#6B7280",
+          600: "#4B5563",
+          700: "#374151",
+          800: "#1F2937",
+          900: "#111827",
+          950: "#030712",
         },
       },
       borderRadius: {
@@ -76,8 +78,8 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
-        display: ["var(--font-playfair)", "Georgia", "serif"],
+        sans: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
+        display: ["var(--font-dm-sans)", "system-ui", "sans-serif"],
       },
       keyframes: {
         "accordion-down": {

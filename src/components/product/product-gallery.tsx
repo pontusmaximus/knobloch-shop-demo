@@ -10,7 +10,7 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
 
   return (
     <div>
-      <div className="relative aspect-square overflow-hidden rounded-2xl border bg-anthracite-100">
+      <div className="relative aspect-square overflow-hidden rounded-2xl border bg-ink-100">
         <Image
           src={main}
           alt={alt}
@@ -29,8 +29,8 @@ export function ProductGallery({ images, alt }: { images: string[]; alt: string 
             className={cn(
               "relative aspect-square overflow-hidden rounded-lg border-2 transition-all",
               activeIdx === i
-                ? "border-anthracite-900"
-                : "border-transparent hover:border-anthracite-400"
+                ? "border-ink-900"
+                : "border-transparent hover:border-ink-400"
             )}
           >
             <Image

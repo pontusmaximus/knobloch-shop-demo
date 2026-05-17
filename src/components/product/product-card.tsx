@@ -14,7 +14,7 @@ export function ProductCard({ product, categorySlug }: { product: Product; categ
       href={href}
       className="group flex flex-col overflow-hidden rounded-2xl border bg-card transition-all hover:-translate-y-1 hover:shadow-xl"
     >
-      <div className="relative aspect-[3/4] overflow-hidden bg-anthracite-100">
+      <div className="relative aspect-[3/4] overflow-hidden bg-ink-100">
         <Image
           src={img}
           alt={product.name}
@@ -41,7 +41,7 @@ export function ProductCard({ product, categorySlug }: { product: Product; categ
             </Badge>
           )}
         </div>
-        <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-anthracite-900 opacity-0 transition-all group-hover:opacity-100">
+        <span className="absolute right-3 top-3 inline-flex h-8 w-8 items-center justify-center rounded-full bg-white/95 text-ink-900 opacity-0 transition-all group-hover:opacity-100">
           <ArrowUpRight className="h-4 w-4" />
         </span>
       </div>

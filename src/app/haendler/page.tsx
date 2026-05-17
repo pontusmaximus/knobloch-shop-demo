@@ -36,29 +36,26 @@ const features = [
 export default function HaendlerPage() {
   return (
     <>
-      <section className="border-b bg-anthracite-900 py-16 text-white lg:py-24">
-        <div className="container">
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+      <section className="relative overflow-hidden border-b bg-white py-16 lg:py-24">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute -right-32 top-32 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl" />
+        <div className="container relative">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
             B2B-Portal
           </p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight md:text-6xl text-balance">
+          <h1 className="mt-3 font-display text-5xl font-bold tracking-tight text-ink-900 md:text-7xl text-balance">
             Für Architekt:innen<br />und Bauträger.
           </h1>
-          <p className="mt-6 max-w-2xl text-anthracite-200 text-pretty">
+          <p className="mt-6 max-w-2xl text-ink-600 text-pretty">
             BIM-Daten, projektspezifische Konditionen, persönliche Ansprechpartner. Für alle, die
             in Wohnungs- und Gewerbebau Anlagen planen.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="xl" variant="accent">
+            <Button asChild size="xl" variant="accent" className="shadow-lg shadow-brand-600/20">
               <Link href="/kontakt">Projektanfrage stellen</Link>
             </Button>
-            <Button
-              asChild
-              size="xl"
-              variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
-            >
+            <Button asChild size="xl" variant="outline">
               <a href="tel:+4934316064242">B2B-Hotline</a>
             </Button>
           </div>
@@ -72,7 +69,7 @@ export default function HaendlerPage() {
               const Icon = f.icon;
               return (
                 <div key={f.title} className="flex gap-5 rounded-2xl border bg-card p-6">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ink-900 text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div>
@@ -86,16 +83,16 @@ export default function HaendlerPage() {
         </div>
       </section>
 
-      <section className="bg-anthracite-50 py-16 dark:bg-anthracite-950 lg:py-24">
+      <section className="bg-ink-50 py-16 lg:py-24">
         <div className="container max-w-3xl text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-balance">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink-900 md:text-5xl text-balance">
             Sprechen Sie mit unserem B2B-Team.
           </h2>
-          <p className="mt-3 text-muted-foreground">
+          <p className="mt-4 text-ink-600">
             Wir betreuen Projekte von 8 bis 800 Wohneinheiten. Unser Vertriebsteam meldet sich
             innerhalb von 24 Stunden bei Ihnen.
           </p>
-          <Button asChild size="lg" variant="accent" className="mt-6">
+          <Button asChild size="lg" variant="accent" className="mt-6 shadow-lg shadow-brand-600/20">
             <Link href="/kontakt" className="group">
               Beratung anfragen
               <ArrowRight className="transition-transform group-hover:translate-x-1" />

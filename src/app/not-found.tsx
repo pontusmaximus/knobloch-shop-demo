@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <section className="flex min-h-[60vh] items-center justify-center py-16">
       <div className="container max-w-md text-center">
-        <p className="font-display text-6xl text-anthracite-300">404</p>
+        <p className="font-display text-6xl text-ink-300">404</p>
         <h1 className="mt-4 font-display text-3xl">Diese Anlage existiert nicht.</h1>
         <p className="mt-3 text-muted-foreground">
           Die gewünschte Seite wurde nicht gefunden. Vielleicht haben Sie sich vertippt — oder die

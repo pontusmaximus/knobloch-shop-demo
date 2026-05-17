@@ -144,7 +144,7 @@ export default function KontaktPage() {
               />
 
               <div className="overflow-hidden rounded-2xl border">
-                <div className="aspect-[4/3] bg-anthracite-100 dark:bg-anthracite-900">
+                <div className="aspect-[4/3] bg-ink-100 dark:bg-ink-900">
                   <div className="flex h-full items-center justify-center text-sm text-muted-foreground">
                     🗺️ Karte: Döbeln, Sachsen
                   </div>
@@ -173,7 +173,7 @@ function ContactCard({
 }) {
   const Body = (
     <div className="flex gap-4 rounded-2xl border bg-card p-5 transition-colors hover:bg-secondary/30">
-      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ink-900 text-white">
         {icon}
       </div>
       <div>

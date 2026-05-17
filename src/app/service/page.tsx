@@ -43,15 +43,17 @@ export default function ServicePage() {
   const allFaqs = [...generalFaqs, ...technicalFaqs];
   return (
     <>
-      <section className="border-b bg-anthracite-50 py-12 dark:bg-anthracite-950 lg:py-16">
-        <div className="container">
-          <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+      <section className="relative overflow-hidden border-b bg-white py-16 lg:py-24">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute -right-32 top-32 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl" />
+        <div className="container relative">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
             Service
           </p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight md:text-5xl text-balance">
+          <h1 className="mt-3 font-display text-5xl font-bold tracking-tight text-ink-900 md:text-6xl text-balance">
             Service, der Bestand hat.
           </h1>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
+          <p className="mt-4 max-w-2xl text-ink-600">
             Wir sind nicht nur Hersteller — wir begleiten Sie über die gesamte Lebensdauer Ihrer
             Anlage. Auch wenn die Bestellung Jahrzehnte zurückliegt.
           </p>
@@ -69,7 +71,7 @@ export default function ServicePage() {
                   href={s.href}
                   className="group flex gap-5 rounded-2xl border bg-card p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-ink-900 text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <div className="flex-1">
@@ -89,24 +91,19 @@ export default function ServicePage() {
 
       <FaqSection faqs={allFaqs} title="Alle häufigen Fragen" id="faq" />
 
-      <section className="bg-anthracite-900 py-16 text-white lg:py-24">
+      <section className="bg-ink-50 py-16 lg:py-24">
         <div className="container max-w-3xl text-center">
-          <h2 className="font-display text-3xl md:text-4xl text-balance">
+          <h2 className="font-display text-4xl font-bold tracking-tight text-ink-900 md:text-5xl text-balance">
             Ihre Frage nicht dabei?
           </h2>
-          <p className="mt-3 text-anthracite-300">
+          <p className="mt-4 text-ink-600">
             Sprechen Sie direkt mit unserem Team in Döbeln. Antwort in 24 Stunden garantiert.
           </p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
-            <Button asChild size="lg" variant="accent">
+            <Button asChild size="lg" variant="accent" className="shadow-lg shadow-brand-600/20">
               <Link href="/kontakt">Kontakt aufnehmen</Link>
             </Button>
-            <Button
-              asChild
-              size="lg"
-              variant="outline"
-              className="border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
-            >
+            <Button asChild size="lg" variant="outline">
               <Link href="tel:+4934316064242">+49 3431 6064-242</Link>
             </Button>
           </div>

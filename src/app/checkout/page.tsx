@@ -81,7 +81,7 @@ export default function CheckoutPage() {
                 <span
                   className={cn(
                     "inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5",
-                    active && "border-anthracite-900 bg-anthracite-900 text-white",
+                    active && "border-ink-900 bg-ink-900 text-white",
                     done && "border-emerald-200 bg-emerald-50 text-emerald-800",
                     !active && !done && "border-border text-muted-foreground"
                   )}
@@ -298,7 +298,7 @@ function ShippingOption({
       htmlFor={`ship-${value}`}
       className={cn(
         "flex cursor-pointer items-start gap-3 rounded-lg border-2 p-4 transition-all",
-        checked ? "border-anthracite-900 bg-anthracite-50 dark:bg-anthracite-900/40" : "border-border hover:border-anthracite-400"
+        checked ? "border-ink-900 bg-ink-50 dark:bg-ink-900/40" : "border-border hover:border-ink-400"
       )}
     >
       <RadioGroupItem value={value} id={`ship-${value}`} className="mt-0.5" />
@@ -352,7 +352,7 @@ function PaymentOption({
       htmlFor={`pay-${value}`}
       className={cn(
         "flex cursor-pointer items-start gap-3 rounded-lg border-2 p-4 transition-all",
-        checked ? "border-anthracite-900 bg-anthracite-50 dark:bg-anthracite-900/40" : "border-border hover:border-anthracite-400"
+        checked ? "border-ink-900 bg-ink-50 dark:bg-ink-900/40" : "border-border hover:border-ink-400"
       )}
     >
       <RadioGroupItem value={value} id={`pay-${value}`} className="mt-0.5" />
@@ -426,13 +426,13 @@ function ReviewStep({
         </div>
       </div>
 
-      <div className="rounded-lg border-2 border-anthracite-900 bg-anthracite-900 p-5 text-white">
+      <div className="rounded-lg border-2 border-ink-900 bg-ink-900 p-5 text-white">
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-xs uppercase tracking-wider text-anthracite-300">Gesamtbetrag</p>
+            <p className="text-xs uppercase tracking-wider text-ink-300">Gesamtbetrag</p>
             <p className="font-display text-3xl">{formatPrice(grandTotal)}</p>
           </div>
-          <p className="text-xs text-anthracite-300">inkl. MwSt.</p>
+          <p className="text-xs text-ink-300">inkl. MwSt.</p>
         </div>
       </div>
 

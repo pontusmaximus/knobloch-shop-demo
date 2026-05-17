@@ -18,14 +18,14 @@ export function NewsletterForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="flex w-full max-w-lg gap-2 lg:ml-auto">
+    <form onSubmit={onSubmit} className="flex w-full max-w-lg gap-2">
       <Input
         type="email"
         required
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         placeholder="ihre@email.de"
-        className="h-12 border-white/10 bg-white/5 text-white placeholder:text-anthracite-400 focus-visible:ring-accent"
+        className="h-12 bg-white"
       />
       <Button type="submit" variant="accent" size="lg" disabled={submitted}>
         {submitted ? (

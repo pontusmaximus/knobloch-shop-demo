@@ -1,10 +1,11 @@
 export type ConfiguratorStep =
   | "type"
+  | "verkleidung"
   | "material"
   | "color"
-  | "size"
-  | "mounting"
+  | "befestigung"
   | "compartments"
+  | "funktionskasten"
   | "extras"
   | "review";
 
@@ -14,6 +15,14 @@ export type MountingTypeOption = {
   description: string;
   image: string;
   basePrice: number;
+};
+
+export type VerkleidungOption = {
+  id: string;
+  code: string;
+  name: string;
+  description: string;
+  surcharge: number;
 };
 
 export type MaterialOption = {
@@ -33,6 +42,22 @@ export type ColorOption = {
   surcharge: number;
 };
 
+export type BefestigungOption = {
+  id: "einbetonieren" | "aufschrauben";
+  name: string;
+  description: string;
+  surcharge: number;
+};
+
+export type FunktionskastenOption = {
+  id: "bb0" | "bb1" | "bb2" | "bb3" | "bb4";
+  code: string;
+  name: string;
+  description: string;
+  includes: string[];
+  price: number;
+};
+
 export type ExtraOption = {
   id: string;
   name: string;
@@ -46,43 +71,68 @@ export const mountingTypes: MountingTypeOption[] = [
     id: "freistehend",
     name: "Freistehend",
     description: "Standanlage am Grundstückseingang, einbetoniert oder verschraubt.",
-    image: "/img/configurator/mounting-freistehend.png",
+    image: "/img/categories/freistehend.jpg",
     basePrice: 489,
   },
   {
     id: "aufputz",
     name: "Aufputz",
     description: "Wandmontage außen — direkt auf Putz oder Fassade.",
-    image: "/img/configurator/mounting-aufputz.png",
+    image: "/img/categories/aufputz.jpg",
     basePrice: 329,
   },
   {
     id: "unterputz",
     name: "Unterputz",
     description: "Bündig in der Wand integriert — Premium-Optik.",
-    image: "/img/configurator/mounting-unterputz.png",
+    image: "/img/categories/unterputz.jpg",
     basePrice: 549,
   },
   {
     id: "zaun",
     name: "Zaun",
     description: "Integration in Zaun, Tor oder Gabione — Entnahme rückseitig.",
-    image: "/img/configurator/mounting-zaun.png",
+    image: "/img/categories/zaun.jpg",
     basePrice: 419,
   },
   {
     id: "tuerelement",
     name: "Türelement",
     description: "Teil der Eingangstür — architektonisch nahtlos.",
-    image: "/img/configurator/mounting-tuerelement.png",
+    image: "/img/categories/tuerseitenteil.jpg",
     basePrice: 389,
   },
   {
     id: "mauerdurchwurf",
     name: "Mauerdurchwurf",
     description: "Eingewurf außen — Entnahme innen, wetterunabhängig.",
-    image: "/img/configurator/mounting-mauerdurchwurf.png",
+    image: "/img/categories/mauerdurchwurf.jpg",
     basePrice: 459,
+  },
+];
+
+// Verkleidungen — wie im Original-Konfigurator (RI244 / RI241 / RI234)
+export const verkleidungen: VerkleidungOption[] = [
+  {
+    id: "ri244",
+    code: "RI244",
+    name: "Dreiteilig mit Regenkante",
+    description: "Enganliegende Verkleidung — Seitenpanele + Dach getrennt. Sichtbare Konstruktion, maximale Stabilität.",
+    surcharge: 0,
+  },
+  {
+    id: "ri241",
+    code: "RI241",
+    name: "Enganliegend, integrierte Regenkante",
+    description: "Kompakter Aufbau — Regenkante ist Teil der Hauptverkleidung. Klassische Optik.",
+    surcharge: 0,
+  },
+  {
+    id: "ri234",
+    code: "RI234",
+    name: "Kompaktverkleidung",
+    description: "Schlankste Variante — minimaler Materialbedarf, schlichter Look. Ideal für kleine Anlagen.",
+    surcharge: -29,
   },
 ];
 
@@ -90,7 +140,8 @@ export const materials: MaterialOption[] = [
   {
     id: "stahl",
     name: "Stahl pulverbeschichtet",
-    description: "Robust, witterungsbeständig, individuelle RAL-Farben — bestes Preis-Leistungs-Verhältnis.",
+    description:
+      "Robust, witterungsbeständig, individuelle RAL-Farben — bestes Preis-Leistungs-Verhältnis.",
     priceFactor: 1.0,
     fastShip: true,
   },
@@ -111,7 +162,8 @@ export const materials: MaterialOption[] = [
   {
     id: "v4a",
     name: "Edelstahl V4A",
-    description: "Marine-Qualität — für Küstennähe, Schwimmbäder und Industriegebiete. Salzwasserbeständig.",
+    description:
+      "Marine-Qualität — für Küstennähe, Schwimmbäder und Industriegebiete. Salzwasserbeständig.",
     priceFactor: 1.95,
     fastShip: false,
   },
@@ -132,37 +184,81 @@ export const colors: ColorOption[] = [
   { id: "ral-2004", name: "Reinorange", hex: "#E55322", ral: "RAL 2004", category: "RAL Premium", surcharge: 89 },
 ];
 
+export const befestigungen: BefestigungOption[] = [
+  {
+    id: "einbetonieren",
+    name: "Einbetonieren",
+    description: "Standfuß wird im Beton-Fundament verankert — dauerhaft, robust, vibrationssicher.",
+    surcharge: 0,
+  },
+  {
+    id: "aufschrauben",
+    name: "Aufschrauben",
+    description: "Bodenplatte zum Verschrauben — flexibel, bei späterem Umzug demontierbar.",
+    surcharge: 29,
+  },
+];
+
+export const funktionskaesten: FunktionskastenOption[] = [
+  {
+    id: "bb0",
+    code: "bb0",
+    name: "Ohne Funktionskasten",
+    description: "Reine Briefkastenanlage, keine elektronischen Komponenten.",
+    includes: ["Briefkasten-Anlage"],
+    price: 0,
+  },
+  {
+    id: "bb1",
+    code: "bb1",
+    name: "Funktionskasten Basic",
+    description: "Universalhalterung mit Sprechsieblochung und Edelstahl-Klingeltaster vorbereitet.",
+    includes: ["Sprechsieblochung", "Klingeltaster (Edelstahl)", "Namensschild", "Universalhalterung"],
+    price: 189,
+  },
+  {
+    id: "bb2",
+    code: "bb2",
+    name: "Audio-Sprechanlage",
+    description: "Komplettes Audio-Set — Außensprechstelle plus Innentürstationen.",
+    includes: [
+      "Außensprechstelle (Audio)",
+      "Innentürstation(en)",
+      "Klingeltaster pro Wohneinheit",
+      "Namensschilder",
+    ],
+    price: 449,
+  },
+  {
+    id: "bb3",
+    code: "bb3",
+    name: "Video-Sprechanlage",
+    description: "Premium-Set — Außensprechstelle mit HD-Kamera plus Innentürstation mit Display.",
+    includes: [
+      "Außensprechstelle mit HD-Videokamera",
+      "Innentürstation mit Touchscreen",
+      "App-Anbindung iOS / Android",
+      "Klingeltaster pro Wohneinheit",
+    ],
+    price: 849,
+  },
+  {
+    id: "bb4",
+    code: "bb4",
+    name: "Individuelle Stanzungen",
+    description: "Kasten mit Custom-Aussparungen — für Scanner, Transponder oder digitale Displays.",
+    includes: [
+      "Individuelle CNC-Stanzungen",
+      "Vorbereitung für Drittanbieter-Module",
+      "Maßanfertigung nach Plan",
+    ],
+    price: 599,
+  },
+];
+
 export const extras: ExtraOption[] = [
   {
-    id: "klingeltaster",
-    name: "Klingeltaster (LED-beleuchtet)",
-    description: "Pro Wohneinheit ein beleuchteter Klingeltaster, Edelstahl-Optik.",
-    price: 39,
-    category: "Komfort",
-  },
-  {
-    id: "gegensprechanlage",
-    name: "Gegensprechanlage 2-Draht",
-    description: "Klassische Audio-Gegensprechanlage, 2-Draht-System.",
-    price: 189,
-    category: "Komfort",
-  },
-  {
-    id: "video-intercom",
-    name: "Video-Gegensprechanlage (HD, App)",
-    description: "Full-HD-Kamera, App-Anbindung iOS/Android, Cloud-Speicher 7 Tage.",
-    price: 449,
-    category: "Smart",
-  },
-  {
-    id: "paketfach",
-    name: "Zusätzliches Paketfach (40 cm)",
-    description: "Großes Paketfach mit Kurier-Code, Tragkraft 30 kg.",
-    price: 299,
-    category: "Komfort",
-  },
-  {
-    id: "namensschild-zweit",
+    id: "zweites-namensschild",
     name: "Zweites Namensschild",
     description: "Zusätzliches graviertes Namensschild — z. B. für Firma + Privat.",
     price: 19,
@@ -196,6 +292,13 @@ export const extras: ExtraOption[] = [
     price: 229,
     category: "Smart",
   },
+  {
+    id: "lichttaster",
+    name: "Zusätzlicher Lichttaster",
+    description: "Klingeltaster mit integriertem Lichttaster für Außenbeleuchtung.",
+    price: 39,
+    category: "Komfort",
+  },
 ];
 
 export type CompartmentLayout = {
@@ -212,12 +315,37 @@ export function calculateCompartmentPrice(cols: number, rows: number): number {
 }
 
 export const sizeOrientations = [
-  { id: "senkrecht", name: "Senkrecht", description: "Klassische Hochformat-Briefkästen — DIN A4 hochkant.", surcharge: 0 },
-  { id: "waagerecht", name: "Waagerecht", description: "Querformat — DIN A4 quer einwerfen.", surcharge: 0 },
-  { id: "xl", name: "XL (DIN C4 Plus)", description: "Großformat — auch für gepolsterte Versandtaschen.", surcharge: 89 },
+  {
+    id: "senkrecht",
+    name: "Senkrecht",
+    description: "Klassische Hochformat-Briefkästen — DIN A4 hochkant.",
+    surcharge: 0,
+  },
+  {
+    id: "waagerecht",
+    name: "Waagerecht",
+    description: "Querformat — DIN A4 quer einwerfen.",
+    surcharge: 0,
+  },
+  {
+    id: "xl",
+    name: "XL (DIN C4 Plus)",
+    description: "Großformat — auch für gepolsterte Versandtaschen.",
+    surcharge: 89,
+  },
 ];
 
 export const retrievalOptions = [
-  { id: "vorne", name: "Entnahme von vorne", description: "Sie öffnen die Frontklappe — Standardlösung.", surcharge: 0 },
-  { id: "hinten", name: "Entnahme von hinten", description: "Briefkasten in Mauer/Zaun — Entnahme rückseitig.", surcharge: 39 },
+  {
+    id: "vorne",
+    name: "Entnahme von vorne",
+    description: "Sie öffnen die Frontklappe — Standardlösung.",
+    surcharge: 0,
+  },
+  {
+    id: "hinten",
+    name: "Entnahme von hinten",
+    description: "Briefkasten in Mauer/Zaun — Entnahme rückseitig.",
+    surcharge: 39,
+  },
 ];

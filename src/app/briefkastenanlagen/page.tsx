@@ -21,7 +21,7 @@ export default function BriefkastenanlagenPage() {
 
   return (
     <>
-      <section className="border-b bg-anthracite-50 py-12 dark:bg-anthracite-950 lg:py-16">
+      <section className="border-b bg-ink-50 py-12 dark:bg-ink-950 lg:py-16">
         <div className="container">
           <nav className="text-xs text-muted-foreground">
             <Link href="/" className="hover:text-foreground">
@@ -53,7 +53,7 @@ export default function BriefkastenanlagenPage() {
                   href={`/briefkastenanlagen/${c.slug}`}
                   className="group rounded-2xl border bg-card p-6 transition-all hover:-translate-y-0.5 hover:shadow-md"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-900 text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-4 text-lg font-semibold">{c.shortName}</h3>

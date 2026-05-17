@@ -42,15 +42,17 @@ const values = [
 export default function UeberUnsPage() {
   return (
     <>
-      <section className="border-b bg-anthracite-900 py-16 text-white lg:py-24">
-        <div className="container">
-          <p className="text-xs font-semibold uppercase tracking-widest text-accent">
+      <section className="relative overflow-hidden border-b bg-white py-16 lg:py-24">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute -right-32 top-32 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl" />
+        <div className="container relative">
+          <p className="text-xs font-bold uppercase tracking-widest text-brand-600">
             Seit 1869
           </p>
-          <h1 className="mt-3 font-display text-4xl tracking-tight md:text-6xl text-balance">
+          <h1 className="mt-3 font-display text-5xl font-bold tracking-tight text-ink-900 md:text-7xl text-balance">
             Die älteste Briefkasten-<br />manufaktur Deutschlands.
           </h1>
-          <p className="mt-6 max-w-2xl text-anthracite-200 text-pretty">
+          <p className="mt-6 max-w-2xl text-ink-600 text-pretty">
             Was 1869 als kleine Werkstatt in Döbeln begann, ist heute eine der traditionsreichsten
             Manufakturen Sachsens. Wir fertigen Briefkastenanlagen, Paketboxen und Abholstationen
             für Privatkunden, Bauträger und Architekt:innen weltweit.
@@ -65,7 +67,7 @@ export default function UeberUnsPage() {
               const Icon = f.icon;
               return (
                 <div key={f.label} className="rounded-2xl border bg-card p-5">
-                  <Icon className="h-5 w-5 text-anthracite-400" />
+                  <Icon className="h-5 w-5 text-ink-400" />
                   <dt className="mt-3 text-[10px] uppercase tracking-wider text-muted-foreground">
                     {f.label}
                   </dt>
@@ -92,7 +94,7 @@ export default function UeberUnsPage() {
               const Icon = v.icon;
               return (
                 <div key={v.title} className="bg-card p-8">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-900 text-white">
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="mt-5 font-display text-xl">{v.title}</h3>

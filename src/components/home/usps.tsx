@@ -51,7 +51,7 @@ export function USPs() {
             const Icon = u.icon;
             return (
               <div key={u.title} className="bg-card p-8">
-                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white dark:bg-white dark:text-anthracite-900">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-900 text-white dark:bg-white dark:text-ink-900">
                   <Icon className="h-5 w-5" />
                 </div>
                 <h3 className="mt-5 text-base font-semibold tracking-tight">{u.title}</h3>

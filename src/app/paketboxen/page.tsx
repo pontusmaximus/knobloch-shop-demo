@@ -27,40 +27,51 @@ export default function PaketboxenPage() {
 
   return (
     <>
-      <section className="relative overflow-hidden border-b bg-anthracite-900 text-white">
-        <Image
-          src="/img/paket/paketbox-einfamilienhaus.jpg"
-          alt="Knobloch Paketbox"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover opacity-30"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-anthracite-950/95 to-anthracite-900/40" />
+      <section className="relative overflow-hidden border-b bg-white">
+        <div className="absolute inset-0 bg-grid opacity-30" />
+        <div className="absolute -right-32 top-32 h-96 w-96 rounded-full bg-brand-100/50 blur-3xl" />
 
-        <div className="container relative py-16 lg:py-24">
-          <nav className="text-xs text-anthracite-300">
-            <Link href="/" className="hover:text-white">Start</Link> /{" "}
-            <span className="text-white">Paketboxen</span>
-          </nav>
-          <h1 className="mt-4 font-display text-4xl tracking-tight md:text-6xl text-balance">
-            Paketboxen & Paketanlagen.
-          </h1>
-          <p className="mt-4 max-w-2xl text-anthracite-200 text-pretty">
-            Pakete sicher empfangen — auch wenn niemand zuhause ist. Unsere Boxen sind kompatibel
-            mit allen großen Paketdiensten und bieten Tragkraft bis 30 kg pro Fach.
-          </p>
+        <div className="container relative grid items-center gap-10 py-16 lg:grid-cols-12 lg:py-24">
+          <div className="lg:col-span-7">
+            <nav className="text-xs text-ink-500">
+              <Link href="/" className="hover:text-brand-600">Start</Link> /{" "}
+              <span className="text-ink-900">Paketboxen</span>
+            </nav>
+            <h1 className="mt-4 font-display text-5xl font-bold tracking-tight text-ink-900 md:text-7xl text-balance">
+              Paketboxen & Paketanlagen.
+            </h1>
+            <p className="mt-4 max-w-2xl text-ink-600 text-pretty">
+              Pakete sicher empfangen — auch wenn niemand zuhause ist. Unsere Boxen sind kompatibel
+              mit allen großen Paketdiensten und bieten Tragkraft bis 30 kg pro Fach.
+            </p>
 
-          <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
-            <span className="font-medium text-anthracite-200">Kompatibel mit:</span>
-            {carriers.map((c) => (
-              <span
-                key={c}
-                className="rounded-full border border-white/20 bg-white/10 px-3 py-1 font-bold text-white backdrop-blur"
-              >
-                {c}
-              </span>
-            ))}
+            <div className="mt-6 flex flex-wrap items-center gap-2 text-xs">
+              <span className="font-semibold text-ink-700">Kompatibel mit:</span>
+              {carriers.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-ink-200 bg-white px-3 py-1 font-bold text-ink-900"
+                >
+                  {c}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <div className="lg:col-span-5">
+            <div className="relative mx-auto max-w-md">
+              <div className="absolute -inset-4 rounded-3xl bg-brand-100/40 blur-2xl" />
+              <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-ink-200 bg-ink-50 shadow-xl">
+                <Image
+                  src="/img/paket/paketbox-einfamilienhaus.jpg"
+                  alt="Knobloch Paketbox"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 400px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -87,11 +98,11 @@ export default function PaketboxenPage() {
                         sizes="(min-width: 768px) 33vw, 100vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/40 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-ink-950/40 to-transparent" />
                     </div>
                   )}
                   <div className="p-6">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-900 text-white">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="mt-4 text-lg font-semibold">{c.shortName}</h3>
@@ -177,7 +188,7 @@ export default function PaketboxenPage() {
 function Feature({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
   return (
     <div className="bg-card p-8">
-      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-anthracite-900 text-white">
+      <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-ink-900 text-white">
         {icon}
       </div>
       <h3 className="mt-5 text-base font-semibold">{title}</h3>

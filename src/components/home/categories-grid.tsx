@@ -46,7 +46,7 @@ export function CategoriesGrid() {
               href={`/briefkastenanlagen/${cat.slug}`}
               className="group relative flex flex-col overflow-hidden rounded-2xl border bg-card transition-all hover:-translate-y-1 hover:shadow-2xl"
             >
-              <div className="relative aspect-[4/5] overflow-hidden bg-anthracite-100">
+              <div className="relative aspect-[4/5] overflow-hidden bg-ink-100">
                 <Image
                   src={categoryImages[cat.slug] ?? categoryImages.freistehend}
                   alt={cat.name}
@@ -55,10 +55,10 @@ export function CategoriesGrid() {
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-anthracite-950/85 via-anthracite-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink-950/85 via-ink-900/20 to-transparent" />
 
                 {/* Top right tag */}
-                <span className="absolute right-3 top-3 inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-anthracite-900 backdrop-blur">
+                <span className="absolute right-3 top-3 inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-ink-900 backdrop-blur">
                   {String(i + 1).padStart(2, "0")} · {cat.shortName}
                 </span>
 
@@ -70,7 +70,7 @@ export function CategoriesGrid() {
                       <p className="text-[10px] uppercase tracking-wider text-white/70">ab</p>
                       <p className="font-display text-2xl text-accent">{formatPrice(cat.startingPrice)}</p>
                     </div>
-                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-anthracite-900 opacity-0 transition-all group-hover:opacity-100">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-ink-900 opacity-0 transition-all group-hover:opacity-100">
                       <ArrowUpRight className="h-4 w-4" />
                     </span>
                   </div>

@@ -22,7 +22,7 @@ const teamImages = [
 
 export function Heritage() {
   return (
-    <section className="border-b bg-anthracite-50 py-20 dark:bg-anthracite-950 lg:py-28">
+    <section className="border-b bg-ink-50 py-20 dark:bg-ink-950 lg:py-28">
       <div className="container">
         <div className="grid items-start gap-12 lg:grid-cols-12">
           <div className="lg:col-span-5 lg:sticky lg:top-24">
@@ -72,7 +72,7 @@ export function Heritage() {
             <div className="absolute left-[15px] top-0 h-full w-px bg-border" />
             {milestones.map((m) => (
               <li key={m.year} className="relative pb-12 pl-12 last:pb-0">
-                <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full border-2 border-anthracite-900 bg-background text-[10px] font-bold">
+                <div className="absolute left-0 top-0 flex h-8 w-8 items-center justify-center rounded-full border-2 border-ink-900 bg-background text-[10px] font-bold">
                   {m.year.slice(-2)}
                 </div>
                 <p className="font-display text-xs font-bold uppercase tracking-widest text-accent-foreground/80">

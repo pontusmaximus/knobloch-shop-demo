@@ -164,7 +164,7 @@ export default async function ProductPage({ params }: Props) {
         </div>
       </section>
 
-      <section className="border-b bg-anthracite-50 py-12 dark:bg-anthracite-950">
+      <section className="border-b bg-ink-50 py-12 dark:bg-ink-950">
         <div className="container">
           <h2 className="font-display text-2xl">Technische Daten</h2>
           <dl className="mt-6 grid grid-cols-1 gap-px overflow-hidden rounded-xl border bg-border md:grid-cols-2">

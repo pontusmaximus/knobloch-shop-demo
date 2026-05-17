@@ -59,7 +59,7 @@ function CookieGroup({
       </div>
       <label className="inline-flex cursor-pointer items-center">
         <input type="checkbox" defaultChecked={checked} disabled={disabled} className="peer sr-only" />
-        <span className="relative h-6 w-11 rounded-full bg-muted transition-colors peer-checked:bg-anthracite-900 peer-disabled:opacity-50">
+        <span className="relative h-6 w-11 rounded-full bg-muted transition-colors peer-checked:bg-ink-900 peer-disabled:opacity-50">
           <span className="absolute left-0.5 top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform peer-checked:translate-x-5" />
         </span>
       </label>
